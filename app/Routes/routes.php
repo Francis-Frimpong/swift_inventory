@@ -5,4 +5,5 @@ return array_merge(
     require __DIR__ .'/categoriesRoutes.php',
     require __DIR__ .'/stockinRoutes.php',
     require __DIR__ .'/stockoutRoutes.php',
+    require __DIR__ .'/reportsRoutes.php',
 );
