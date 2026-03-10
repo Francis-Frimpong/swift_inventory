@@ -5,6 +5,7 @@ $navLinks = [
   "Categories" => "/swift_inventory/categories", 
   "Stock In" => "/swift_inventory/stockin", 
   "Stock Out" => "/swift_inventory/stockout", 
+  "Reports" => "/swift_inventory/reports", 
   
 ];
 
