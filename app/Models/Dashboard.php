@@ -29,6 +29,6 @@ class Dashboard{
         $stmt->execute();
         $results = $stmt->fetch();
 
-        return $results['total_products'] ?? 0;
+        return $results['total_stockIn'] ?? 0;
     }
 }
