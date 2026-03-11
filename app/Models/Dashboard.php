@@ -13,7 +13,7 @@ class Dashboard{
 
     public function totalProducts()
     {
-        $sql = "SELECT SUM(name) AS total_products FROM products";
+        $sql = "SELECT COUNT(*) AS total_products FROM products";
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
@@ -40,5 +40,16 @@ class Dashboard{
         $results = $stmt->fetch();
 
         return $results['total_stockOut'] ?? 0;
+    }
+
+    public function lowStock()
+    {
+        $sql = "SELECT COUNT(*) AS low_stock FROM products WHERE quantity < 10";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetch();
+
+        return $results['low_stock'] ?? 0;
     }
 }

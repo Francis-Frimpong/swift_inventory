@@ -35,7 +35,7 @@
 <div class="card text-bg-danger">
 <div class="card-body">
 <h6>Low Stock</h6>
-<h3>5</h3>
+<h3><?= htmlspecialchars($lowStock) ?></h3>
 </div>
 </div>
 </div>
