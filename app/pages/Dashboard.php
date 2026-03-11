@@ -17,7 +17,7 @@
 <div class="card text-bg-success">
 <div class="card-body">
 <h6>Stock In</h6>
-<h3>340</h3>
+<h3><?= htmlspecialchars($totalStockIn) ?></h3>
 </div>
 </div>
 </div>
