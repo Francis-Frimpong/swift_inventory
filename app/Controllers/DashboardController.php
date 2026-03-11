@@ -25,6 +25,7 @@ class DashboardController
         // overall Totals
         $totalProducts = $this->dashboard->totalProducts();
         $totalStockIn = $this->dashboard->totalStockIn();
+        $totalStockOut = $this->dashboard->totalStockOut();
 
         $pageTitle = 'Inventory Dashboard';
 

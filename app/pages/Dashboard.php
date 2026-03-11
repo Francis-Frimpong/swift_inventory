@@ -26,7 +26,7 @@
 <div class="card text-bg-warning">
 <div class="card-body">
 <h6>Stock Out</h6>
-<h3>210</h3>
+<h3><?= htmlspecialchars($totalStockOut) ?></h3>
 </div>
 </div>
 </div>

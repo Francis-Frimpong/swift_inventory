@@ -31,4 +31,14 @@ class Dashboard{
 
         return $results['total_stockIn'] ?? 0;
     }
+    public function totalStockOut()
+    {
+        $sql = "SELECT SUM(quantity) AS total_stockOut FROM stock_out";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetch();
+
+        return $results['total_stockOut'] ?? 0;
+    }
 }
