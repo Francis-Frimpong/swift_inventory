@@ -8,7 +8,7 @@
 <div class="card text-bg-primary">
 <div class="card-body">
 <h6>Total Products</h6>
-<h3>120</h3>
+<h3><?= htmlspecialchars($totalProducts) ?></h3>
 </div>
 </div>
 </div>
