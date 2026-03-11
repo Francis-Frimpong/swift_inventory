@@ -2,7 +2,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
     <h4>Products</h4>
-    <a class="btn btn-primary" href="#">Add Product</a>
+    <a class="btn btn-primary" href="/swift_inventory/create-products">Add Product</a>
     </div>
 
     <div class="card">
