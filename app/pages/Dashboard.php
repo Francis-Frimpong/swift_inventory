@@ -45,6 +45,10 @@
 <div class="card mt-4">
 <div class="card-header">Recent Transactions</div>
 <div class="table-responsive">
+<?php if(empty($recentTransactions)):?>
+   <h3 class="text-center text-muted my-4">No Transactions has occurred!</h3>
+<?php else: ?>
+<?php foreach($recentTransactions as $transactions):?>
 <table class="table table-striped mb-0">
 <thead>
 <tr>
@@ -56,13 +60,15 @@
 </thead>
 <tbody>
 <tr>
-<td>Rice</td>
-<td>Stock In</td>
-<td>50</td>
-<td>2026-03-01</td>
+<td><?= htmlspecialchars($transactions['product']) ?></td>
+<td><?= htmlspecialchars($transactions['type']) ?></td>
+<td><?= htmlspecialchars($transactions['quantity']) ?></td>
+<td><?= htmlspecialchars($transactions['date']) ?></td>
 </tr>
 </tbody>
 </table>
+<?php endforeach?>
+<?php endif?>
 </div>
 </div>
 

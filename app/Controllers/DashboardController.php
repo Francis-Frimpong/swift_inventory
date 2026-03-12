@@ -28,6 +28,8 @@ class DashboardController
         $totalStockOut = $this->dashboard->totalStockOut();
         $lowStock = $this->dashboard->lowStock();
 
+        $recentTransactions = $this->dashboard->transaction();
+
         $pageTitle = 'Inventory Dashboard';
 
         require __DIR__ . '/../pages/Dashboard.php';
