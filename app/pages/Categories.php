@@ -4,9 +4,9 @@
 
 <div class="card mb-4">
 <div class="card-body">
-<form class="row g-2">
+<form class="row g-2" method="POST" action="/swift_inventory/categories">
 <div class="col-12 col-md-8">
-<input type="text" class="form-control" placeholder="Category name">
+<input type="text" class="form-control" placeholder="Category name" name="category">
 </div>
 <div class="col-12 col-md-4">
 <button class="btn btn-primary w-100">Add Category</button>
@@ -24,12 +24,14 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Food</td>
-<td>
-<button class="btn btn-sm btn-danger">Delete</button>
-</td>
-</tr>
+<?php foreach($categories as $category):?>
+    <tr>
+    <td><?= htmlspecialchars($category['name']) ?></td>
+    <td>
+    <button class="btn btn-sm btn-danger">Delete</button>
+    </td>
+    </tr>
+<?php endforeach?>    
 </tbody>
 </table>
 </div>
