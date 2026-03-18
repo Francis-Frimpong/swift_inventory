@@ -48,4 +48,15 @@ class CategoriesController
             
         }
     }
+
+    public function deleteCategory()
+    {
+        if($_SERVER["REQUEST_METHOD"] === 'POST'){
+            $categoryId = trim($_POST['category_id']);
+
+            $this->category->delete($categoryId);
+            header('Location: /swift_inventory/categories');
+
+        }
+    }
 }
