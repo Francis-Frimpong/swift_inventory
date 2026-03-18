@@ -31,7 +31,7 @@ class Category
    public function delete($id)
    {
       $sql = "
-        DELETE FROM categories
+      DELETE FROM categories
       WHERE id = ?
       AND NOT EXISTS (
             SELECT 1 
