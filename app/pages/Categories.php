@@ -24,14 +24,21 @@
 </tr>
 </thead>
 <tbody>
-<?php foreach($categories as $category):?>
-    <tr>
+<?php foreach($categories as $category): ?>
+<tr>
     <td><?= htmlspecialchars($category['name']) ?></td>
     <td>
-    <button class="btn btn-sm btn-danger">Delete</button>
+        <form action="/swift_inventory/categories/delete" method="POST" class="d-inline">
+            <!-- Hidden input to send the category ID -->
+            <input type="hidden" name="category_id" value="<?= $category['id'] ?>">
+            <button type="submit" class="btn btn-sm btn-danger" 
+                    onclick="return confirm('Are you sure you want to delete this category?');">
+                Delete
+            </button>
+        </form>
     </td>
-    </tr>
-<?php endforeach?>    
+</tr>
+<?php endforeach; ?>   
 </tbody>
 </table>
 </div>
