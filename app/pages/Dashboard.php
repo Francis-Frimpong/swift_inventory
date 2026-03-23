@@ -46,7 +46,7 @@
 <div class="card-header">Recent Transactions</div>
 <div class="table-responsive">
 <?php if(empty($recentTransactions)):?>
-   <h3 class="text-center text-muted my-4">No Transactions has occurred!</h3>
+   <h3 class="text-center text-muted my-4">No Transactions has been recorded!</h3>
 <?php else: ?>
 <?php foreach($recentTransactions as $transactions):?>
 <table class="table table-striped mb-0">

@@ -7,31 +7,37 @@
 
     <div class="card">
     <div class="table-responsive">
-    <table class="table table-striped mb-0">
-    <thead>
-    <tr>
-    <th>Name</th>
-    <th>SKU</th>
-    <th>Category</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Rice</td>
-    <td>SKU001</td>
-    <td>Food</td>
-    <td>50</td>
-    <td>40</td>
-    <td>
-    <button class="btn btn-sm btn-warning">Edit</button>
-    <button class="btn btn-sm btn-danger">Delete</button>
-    </td>
-    </tr>
-    </tbody>
-    </table>
+    <?php if(empty($products)):?>
+        <h3 class="text-center text-muted my-4">No product has been added!</h3>
+    <?php else: ?>
+    <?php foreach($products as $product):?>   
+        <table class="table table-striped mb-0">
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>SKU</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td><?= htmlspecialchars($product['name']) ?></td>
+        <td><?= htmlspecialchars($product['sku']) ?></td>
+        <td><?= htmlspecialchars($product['category_id']) ?></td>
+        <td><?= htmlspecialchars($product['cost_price']) ?></td>
+        <td><?= htmlspecialchars(empty($product['quantity']) ?? 0) ?></td>
+        <td>
+        <button class="btn btn-sm btn-warning">Edit</button>
+        <button class="btn btn-sm btn-danger">Delete</button>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    <?php endforeach ?>
+    <?php endif ?>
     </div>
     </div>
 
