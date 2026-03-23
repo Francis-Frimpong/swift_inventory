@@ -15,7 +15,7 @@ class Products
 
     public function showProduct()
     {
-        $sql = "SELECT name, sku, category_id, cost_price quantity FROM products";
+        $sql = "SELECT name, sku, category_id, cost_price ,quantity FROM products";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
