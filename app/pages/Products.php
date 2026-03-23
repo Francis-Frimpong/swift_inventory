@@ -26,7 +26,7 @@
         <tr>
         <td><?= htmlspecialchars($product['name']) ?></td>
         <td><?= htmlspecialchars($product['sku']) ?></td>
-        <td><?= htmlspecialchars($product['category_id']) ?></td>
+        <td><?= htmlspecialchars($product['category_name']) ?></td>
         <td><?= htmlspecialchars($product['cost_price']) ?></td>
         <td><?= htmlspecialchars($product['quantity']) ?? 0 ?></td>
         <td>
