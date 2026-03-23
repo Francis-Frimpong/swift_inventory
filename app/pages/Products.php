@@ -28,7 +28,7 @@
         <td><?= htmlspecialchars($product['sku']) ?></td>
         <td><?= htmlspecialchars($product['category_id']) ?></td>
         <td><?= htmlspecialchars($product['cost_price']) ?></td>
-        <td><?= htmlspecialchars(empty($product['quantity']) ?? 0) ?></td>
+        <td><?= htmlspecialchars($product['quantity']) ?? 0 ?></td>
         <td>
         <button class="btn btn-sm btn-warning">Edit</button>
         <button class="btn btn-sm btn-danger">Delete</button>
