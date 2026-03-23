@@ -13,7 +13,8 @@ class Products
         $this->pdo = $pdo;
     }
 
-    public function showProduct(){
+    public function showProduct()
+    {
         $sql = "SELECT name, sku, category_id, cost_price quantity FROM products";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
