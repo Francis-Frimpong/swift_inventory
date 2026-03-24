@@ -60,7 +60,7 @@
 </thead>
 <tbody>
 <tr>
-<td><?= htmlspecialchars($transactions['product']) ?></td>
+<td><?= htmlspecialchars($transactions['name']) ?></td>
 <td><?= htmlspecialchars($transactions['type']) ?></td>
 <td><?= htmlspecialchars($transactions['quantity']) ?></td>
 <td><?= htmlspecialchars($transactions['date']) ?></td>

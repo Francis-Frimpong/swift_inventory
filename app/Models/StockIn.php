@@ -13,10 +13,31 @@ class StockIn
 
     public function stockin($product, $quantity, $purchase_price, $supplier)
     {
-        $sql = "INSERT INTO stock_in (product_id, quantity, purchase_price, supplier) VALUE (?,?,?,?,?)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$product, $quantity, $purchase_price, $supplier]);
+        // 1. Start transaction
+        $this->pdo->beginTransaction();
 
-        return $stmt;
+        // 2. Insert into stock_in
+        $sql1 = "INSERT INTO stock_in (product_id, quantity, purchase_price, supplier) 
+                VALUES (?, ?, ?, ?)";
+        $stmt1 = $this->pdo->prepare($sql1);
+        $success1 = $stmt1->execute([$product, $quantity, $purchase_price, $supplier]);
+
+        // 3. Update products quantity
+        $sql2 = "UPDATE products 
+                SET quantity = quantity + ? 
+                WHERE id = ?";
+        $stmt2 = $this->pdo->prepare($sql2);
+        $success2 = $stmt2->execute([$quantity, $product]);
+
+        // 4. Check if BOTH queries succeeded
+        if ($success1 && $success2) {
+            // ✅ Everything worked
+            $this->pdo->commit();
+            return true;
+        } else {
+            // ❌ Something failed
+            $this->pdo->rollBack();
+            return false;
+        }
     }
 }
