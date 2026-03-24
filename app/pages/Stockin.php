@@ -10,7 +10,9 @@
 <div class="mb-3">
 <label class="form-label">Product</label>
 <select class="form-select">
-<option>Rice</option>
+<?php foreach($products as $product):?>
+<option value="<?= htmlspecialchars($product['id']) ?>"><?= htmlspecialchars($product['name']) ?></option>
+<?php endforeach?>
 </select>
 </div>
 

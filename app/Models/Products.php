@@ -16,6 +16,7 @@ class Products
     public function showProduct()
     {
         $sql = "SELECT 
+            p.id,
             p.name, 
             p.sku, 
             c.name AS category_name, 
