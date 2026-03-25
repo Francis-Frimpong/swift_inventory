@@ -11,16 +11,16 @@ class StockOut
         $this->pdo = $pdo;
     }
 
-    public function stockout($product, $quantity, $purchase_price)
+    public function stockout($product, $quantity, $selling_price)
     {
         // 1. Start transaction
         $this->pdo->beginTransaction();
 
         // 2. Insert into stock_in
-        $sql1 = "INSERT INTO stock_out (product_id, quantity, purchase_price) 
-                VALUES (?, ?, ?, ?)";
+        $sql1 = "INSERT INTO stock_out (product_id, quantity, selling_price) 
+                VALUES (?, ?, ?,)";
         $stmt1 = $this->pdo->prepare($sql1);
-        $success1 = $stmt1->execute([$product, $quantity, $purchase_price]);
+        $success1 = $stmt1->execute([$product, $quantity, $selling_price]);
 
         // 3. Update products quantity
         $sql2 = "UPDATE products 
