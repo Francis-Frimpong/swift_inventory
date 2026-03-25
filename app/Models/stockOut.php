@@ -18,7 +18,7 @@ class StockOut
 
         // 2. Insert into stock_in
         $sql1 = "INSERT INTO stock_out (product_id, quantity, selling_price) 
-                VALUES (?, ?, ?,)";
+                VALUES (?, ?, ?)";
         $stmt1 = $this->pdo->prepare($sql1);
         $success1 = $stmt1->execute([$product, $quantity, $selling_price]);
 

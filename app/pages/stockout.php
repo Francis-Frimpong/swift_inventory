@@ -18,7 +18,7 @@
 
 <div class="mb-3">
 <label class="form-label">Quantity</label>
-<input type="number" class="form-control" name="quantiy">
+<input type="number" class="form-control" name="quantity">
 </div>
 
 <div class="mb-3">

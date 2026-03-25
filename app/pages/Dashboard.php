@@ -48,7 +48,7 @@
 <?php if(empty($recentTransactions)):?>
    <h3 class="text-center text-muted my-4">No Transactions has been recorded!</h3>
 <?php else: ?>
-<?php foreach($recentTransactions as $transactions):?>
+<?php foreach($recentTransactions as $transaction):?>
 <table class="table table-striped mb-0">
 <thead>
 <tr>
@@ -60,10 +60,10 @@
 </thead>
 <tbody>
 <tr>
-<td><?= htmlspecialchars($transactions['name']) ?></td>
-<td><?= htmlspecialchars($transactions['type']) ?></td>
-<td><?= htmlspecialchars($transactions['quantity']) ?></td>
-<td><?= htmlspecialchars($transactions['date']) ?></td>
+<td><?= htmlspecialchars($transaction['name']) ?></td>
+<td><?= htmlspecialchars($transaction['type']) ?></td>
+<td><?= htmlspecialchars($transaction['quantity']) ?></td>
+<td><?= htmlspecialchars(date('M d, Y', strtotime($transaction['date']))) ?></td>
 </tr>
 </tbody>
 </table>
