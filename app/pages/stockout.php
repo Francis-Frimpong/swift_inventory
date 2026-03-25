@@ -5,23 +5,25 @@
 <div class="card">
 <div class="card-body">
 
-<form>
+<form method="POST" action="/swift_inventory/stockout">
 
 <div class="mb-3">
 <label class="form-label">Product</label>
-<select class="form-select">
-<option>Rice</option>
+<select class="form-select" name="product">
+<?php foreach($products as $product):?>
+<option value="<?= htmlspecialchars($product['id']) ?>"><?= htmlspecialchars($product['name']) ?></option>
+<?php endforeach?>
 </select>
 </div>
 
 <div class="mb-3">
 <label class="form-label">Quantity</label>
-<input type="number" class="form-control">
+<input type="number" class="form-control" name="quantiy">
 </div>
 
 <div class="mb-3">
 <label class="form-label">Selling Price</label>
-<input type="number" class="form-control">
+<input type="number" class="form-control" name="selling-price">
 </div>
 
 <button class="btn btn-danger">Record Sale</button>
