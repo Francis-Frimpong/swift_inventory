@@ -7,21 +7,21 @@
 
     <div class="card">
     <div class="table-responsive">
-    <?php if(empty($products)):?>
-        <h3 class="text-center text-muted my-4">No product has been added!</h3>
-    <?php else: ?>
-    <?php foreach($products as $product):?>   
         <table class="table table-striped mb-0">
-        <thead>
-        <tr>
-        <th>Name</th>
-        <th>SKU</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th></th>
-        </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>SKU</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <?php if(empty($products)):?>
+                <h3 class="text-center text-muted my-4">No product has been added!</h3>
+            <?php else: ?>
+            <?php foreach($products as $product):?>   
         <tbody>
         <tr>
         <td><?= htmlspecialchars($product['name']) ?></td>
@@ -35,9 +35,9 @@
         </td>
         </tr>
         </tbody>
+        <?php endforeach ?>
+        <?php endif ?>
         </table>
-    <?php endforeach ?>
-    <?php endif ?>
     </div>
     </div>
 

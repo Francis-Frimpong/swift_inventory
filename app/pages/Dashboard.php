@@ -45,30 +45,30 @@
 <div class="card mt-4">
 <div class="card-header">Recent Transactions</div>
 <div class="table-responsive">
-<?php if(empty($recentTransactions)):?>
-   <h3 class="text-center text-muted my-4">No Transactions has been recorded!</h3>
-<?php else: ?>
-<?php foreach($recentTransactions as $transaction):?>
-<table class="table table-striped mb-0">
-<thead>
-<tr>
-<th>Product</th>
-<th>Type</th>
-<th>Quantity</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><?= htmlspecialchars($transaction['name']) ?></td>
-<td><?= htmlspecialchars($transaction['type']) ?></td>
-<td><?= htmlspecialchars($transaction['quantity']) ?></td>
-<td><?= htmlspecialchars(date('M d, Y', strtotime($transaction['date']))) ?></td>
-</tr>
-</tbody>
-</table>
-<?php endforeach?>
-<?php endif?>
+   <table class="table table-striped mb-0">
+      <thead>
+         <tr>
+            <th>Product</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Date</th>
+         </tr>
+      </thead>
+      <?php if(empty($recentTransactions)):?>
+         <h3 class="text-center text-muted my-4">No Transactions has been recorded!</h3>
+      <?php else: ?>
+      <?php foreach($recentTransactions as $transaction):?>
+      <tbody>
+      <tr>
+      <td><?= htmlspecialchars($transaction['name']) ?></td>
+      <td><?= htmlspecialchars($transaction['type']) ?></td>
+      <td><?= htmlspecialchars($transaction['quantity']) ?></td>
+      <td><?= htmlspecialchars(date('M d, Y', strtotime($transaction['date']))) ?></td>
+      </tr>
+      </tbody>
+      <?php endforeach?>
+      <?php endif?>
+   </table>
 </div>
 </div>
 
