@@ -42,6 +42,6 @@ class Category
 
       $stmt = $this->pdo->prepare($sql);
       $stmt->execute([$id, $id]);
-      return $stmt->fetch();
+      return $stmt->rowCount();
    }
 }

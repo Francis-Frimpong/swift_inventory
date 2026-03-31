@@ -57,16 +57,16 @@
       <?php if(empty($recentTransactions)):?>
          <h3 class="text-center text-muted my-4">No Transactions has been recorded!</h3>
       <?php else: ?>
+   <tbody>
       <?php foreach($recentTransactions as $transaction):?>
-      <tbody>
       <tr>
       <td><?= htmlspecialchars($transaction['name']) ?></td>
       <td><?= htmlspecialchars($transaction['type']) ?></td>
       <td><?= htmlspecialchars($transaction['quantity']) ?></td>
       <td><?= htmlspecialchars(date('M d, Y', strtotime($transaction['date']))) ?></td>
       </tr>
-      </tbody>
       <?php endforeach?>
+   </tbody>
       <?php endif?>
    </table>
 </div>

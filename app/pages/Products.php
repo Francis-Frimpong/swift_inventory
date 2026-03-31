@@ -21,8 +21,8 @@
             <?php if(empty($products)):?>
                 <h3 class="text-center text-muted my-4">No product has been added!</h3>
             <?php else: ?>
+            <tbody>
             <?php foreach($products as $product):?>   
-        <tbody>
         <tr>
         <td><?= htmlspecialchars($product['name']) ?></td>
         <td><?= htmlspecialchars($product['sku']) ?></td>
@@ -31,11 +31,19 @@
         <td><?= htmlspecialchars($product['quantity']) ?? 0 ?></td>
         <td>
         <button class="btn btn-sm btn-warning">Edit</button>
-        <button class="btn btn-sm btn-danger">Delete</button>
+        <!-- <button class="btn btn-sm btn-danger">Delete</button> -->
+          <form action="/swift_inventory/products/delete" method="POST" class="d-inline">
+            <!-- Hidden input to send the category ID -->
+            <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+            <button type="submit" class="btn btn-sm btn-danger" 
+                    onclick="return confirm('Are you sure you want to delete this product?');">
+                Delete
+            </button>
+        </form>
         </td>
         </tr>
-        </tbody>
         <?php endforeach ?>
+    </tbody>
         <?php endif ?>
         </table>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 USE PDO;
+USE Exception;
 
 class Products
 {
@@ -27,5 +28,18 @@ class Products
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function delete($id)
+    {
+        try{
+            $sql = "DELETE FROM products WHERE id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->rowCount();
+
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
     }
 }
