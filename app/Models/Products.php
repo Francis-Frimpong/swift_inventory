@@ -30,6 +30,14 @@ class Products
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getProductByid($id)
+    {
+        $sql = "SELECT * FROM products WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch();
+    }
+
     public function delete($id)
     {
         try{

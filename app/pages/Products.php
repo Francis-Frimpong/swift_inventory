@@ -30,7 +30,7 @@
         <td><?= htmlspecialchars($product['cost_price']) ?></td>
         <td><?= htmlspecialchars($product['quantity']) ?? 0 ?></td>
         <td>
-        <button class="btn btn-sm btn-warning">Edit</button>
+        <a class="btn btn-sm btn-warning" href="/swift_inventory/update-product?id=<?= $product['id'] ?>">Edit</a>
         <!-- <button class="btn btn-sm btn-danger">Delete</button> -->
           <form action="/swift_inventory/products/delete" method="POST" class="d-inline">
             <!-- Hidden input to send the category ID -->
