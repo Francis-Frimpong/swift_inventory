@@ -20,7 +20,10 @@
 <label class="form-label">Category</label>
 <select class="form-select" name="category">
 <?php foreach($categories as $category):?>
-<option value="<?= htmlspecialchars($category['id']) ?>"><?= htmlspecialchars($category['name']) ?></option>
+<option value="<?= htmlspecialchars($category['id']) ?>"
+    <?= $category['id'] == $product['category_id'] ? 'selected' : '' ?>>
+    <?= htmlspecialchars($category['name']) ?>
+</option>
 <?php endforeach?>
 </select>
 </div>
@@ -32,7 +35,7 @@
 
 <div class="mb-3">
 <label class="form-label">Selling Price</label>
-<input type="number" class="form-control" name="selling-price" value="<?= $product['selling_price'] ??'' ?>">
+<input type="number" class="form-control" name="selling-price" value="<?= $product['selling_price'] ?? '' ?>">
 </div>
 
 <button class="btn btn-primary">Update Product</button>
