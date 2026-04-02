@@ -4,7 +4,8 @@
 <div class="card-header">Update Product</div>
 <div class="card-body">
 
-<form method="POST" action="/swift_inventory/update-product">
+<form method="POST" action="/swift_inventory/update-product?id=<?= $product['id'] ?? '' ?>">
+    <input type="hidden" name="id" value="<?= $product['id'] ?? '' ?>">
 
 <div class="mb-3">
 <label class="form-label">Product Name</label>
