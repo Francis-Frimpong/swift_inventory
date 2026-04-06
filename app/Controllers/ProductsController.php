@@ -4,7 +4,6 @@ namespace App\Controllers;
 USE Exception;
 
 use App\Models\Products;
-use App\Models\Category;
 use App\Database\Database;
 
 
