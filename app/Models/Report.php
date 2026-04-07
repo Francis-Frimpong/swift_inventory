@@ -39,7 +39,7 @@ class Reports
     
             $stmt->execute();
     
-            return $stmt->rowCount();
+            return $stmt->fetchAll();
 
         }catch(Exception $e){
             echo $e->getMessage();

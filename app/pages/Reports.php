@@ -1,4 +1,8 @@
-<?php require_once __DIR__ .'/../pages/partials/protectedPageheader.php';?>
+<?php
+
+use App\Models\Reports;
+
+ require_once __DIR__ .'/../pages/partials/protectedPageheader.php';?>
 
 <h4 class="mb-3">Inventory Report</h4>
 
@@ -14,12 +18,19 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Rice</td>
-<td>70</td>
-<td>15</td>
-<td>55</td>
-</tr>
+<?php if(empty($reports)):?>
+        <h3 class="text-center text-muted my-4">No report has been created.</h3>
+    <?php else: ?>
+    <tbody>
+    <?php foreach($reports as $report):?>  
+        <tr>
+        <td><?= htmlspecialchars($report['product_name']) ?></td>
+        <td><?= htmlspecialchars($report['total_stock_in']) ?></td>
+        <td><?= htmlspecialchars($report['total_stock_out']) ?></td>
+        <td><?= htmlspecialchars($report['remaining_stock']) ?></td>
+        </tr>
+    <?php endforeach?>
+<?php endif?>
 </tbody>
 </table>
 </div>
